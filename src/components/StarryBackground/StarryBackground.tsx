@@ -31,11 +31,11 @@ const StarryBackground: React.FC = () => {
     function createSymbol() {
       const container = document.getElementById("stars");
       if (container) {
-        let symbol = document.createElement("div");
+        const symbol = document.createElement("div");
         symbol.className = "math-symbol";
         symbol.textContent =
           symbols[Math.floor(Math.random() * symbols.length)];
-        let xy = randomPosition();
+        const xy = randomPosition();
         symbol.style.top = `${xy[1]}px`;
         symbol.style.left = `${xy[0]}px`;
         container.appendChild(symbol);
