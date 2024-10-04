@@ -26,13 +26,14 @@
   opacity: 0.8; /* Los símbolos tienen opacidad ligera */
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
     0 0 20px rgba(255, 255, 255, 0.6); /* Sombra brillante */
-  animation: float 10s linear infinite;
+  animation: float 10s ease-out infinite; /* Cambia 'linear' por 'ease-out' */
+  will-change: transform; /* Optimización para mejorar la animación */
 }
 
 /* Algunos símbolos estarán más difuminados */
 .math-symbol:nth-child(odd) {
-  filter: blur(4px);
-  opacity: 0.4;
+  filter: blur(2px); /* Reducir el blur para menos impacto */
+  opacity: 0.6; /* Ajuste de opacidad */
 }
 
 /* Animación para que los símbolos floten suavemente */
