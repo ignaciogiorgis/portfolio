@@ -4,7 +4,7 @@ import "./StarryBackground.css";
 
 const StarryBackground: React.FC = () => {
   useEffect(() => {
-    const numSymbols = 20; // Incrementamos el número de símbolos a 20
+    const numSymbols = 20;
     const symbols = [
       "π",
       "α",
@@ -28,25 +28,21 @@ const StarryBackground: React.FC = () => {
       "ζ",
     ];
 
-    function createSymbols() {
+    function createSymbol() {
       const container = document.getElementById("stars");
       if (container) {
-        // Crear símbolos matemáticos
-        for (let i = 0; i < numSymbols; i++) {
-          let symbol = document.createElement("div");
-          symbol.className = "math-symbol";
-          symbol.textContent =
-            symbols[Math.floor(Math.random() * symbols.length)];
-          let xy = randomPosition();
-          symbol.style.top = `${xy[1]}px`;
-          symbol.style.left = `${xy[0]}px`;
-          container.appendChild(symbol);
+        let symbol = document.createElement("div");
+        symbol.className = "math-symbol";
+        symbol.textContent =
+          symbols[Math.floor(Math.random() * symbols.length)];
+        let xy = randomPosition();
+        symbol.style.top = `${xy[1]}px`;
+        symbol.style.left = `${xy[0]}px`;
+        container.appendChild(symbol);
 
-          // Eliminar el símbolo cuando termine la animación
-          setTimeout(() => {
-            symbol.remove();
-          }, 10000); // La animación dura 10s
-        }
+        setTimeout(() => {
+          symbol.remove();
+        }, 10000); // La animación dura 10s
       }
     }
 
@@ -58,12 +54,14 @@ const StarryBackground: React.FC = () => {
       return [x, y];
     }
 
-    // Crear símbolos al cargar
-    createSymbols();
+    // Crear los símbolos uno por uno con un ligero retraso para evitar bloqueos
+    for (let i = 0; i < numSymbols; i++) {
+      setTimeout(createSymbol, i * 100); // Crear símbolo con retraso
+    }
 
     // Crear nuevos símbolos cada 3 segundos
     const interval = setInterval(() => {
-      createSymbols();
+      createSymbol();
     }, 3000);
 
     // Limpiar el intervalo al desmontar el componente
