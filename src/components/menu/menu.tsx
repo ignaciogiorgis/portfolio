@@ -6,7 +6,7 @@ const menu = () => {
     <div className=" flex flex-row items-center justify-center mt-28">
       <div className="flex items-center justify-center">
         <Link
-          href="/about"
+          href="#about"
           className="text-white bg-transparent flex items-center gap-2 rounded-full font-bold px-6 py-4 text-xl  transition duration-250"
         >
           <span className="relative hover:text-white hover:brightness-200 transition duration-250">
@@ -26,7 +26,7 @@ const menu = () => {
           </span>
         </Link>
         <Link
-          href="/technologies"
+          href="#tecnologias"
           className="text-white bg-transparent flex items-center gap-2 rounded-full px-6 py-4 text-xl font-bold transition duration-250"
         >
           <span className="relative hover:text-white hover:brightness-200 transition duration-250">
